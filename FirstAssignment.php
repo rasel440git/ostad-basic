@@ -54,6 +54,7 @@ Deployment: In this phase, the software is deployed into a production environmen
 
 Maintenance: The maintenance phase involves ongoing support, bug fixes, and updates to the software 
     to ensure its continued operation and performance.
+ 
 
 
 
