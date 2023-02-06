@@ -3,7 +3,8 @@ $mark=30;
 if($mark>60){
     echo "grade is First Division";
 }
-elseif($mark> 45 && $mark <59){
+elseif($mark >=45 && $mark <=59){
+  //elseif($mark >=45 && $mark <=59){    
     echo "grade is second Division";
 }
 elseif($mark >33 && $mark<44){
