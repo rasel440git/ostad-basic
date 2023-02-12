@@ -1,53 +1,61 @@
 <?php
-//  $year=1901;
 
-//  if ($year%4==0 && $year/100){
-//     echo "$year is a leaf Year";
-//  }
-//  else{
-//     echo "$year is not a leaf Year";
-//  }
-// echo "\n";
+/******** Leaf Year calculation using for loop 
+ $year=1901;
 
+ if ($year%4==0 && $year/100){
+    echo "$year is a leaf Year";
+ }
+ else{
+    echo "$year is not a leaf Year";
+ }
+echo "\n";
+*/
+
+
+
+
+/******** For Loop with Tarnarey operator 
+ 
  $n=14;
-//  if( $n%2==0){
-//     echo"this is an Even number";
-//  }
-//  else{
-//     echo"this is an Odd number";
-//  }
-//  echo "\n";
+ if( $n%2==0){
+    echo"this is an Even number";
+ }
+ else{
+    echo"this is an Odd number";
+ }
+ echo "\n";
 
-//  echo $result= ($n%2==0) ?"this is an Even number":"this is an Odd number";
-//  echo "\n";
+ echo $result= ($n%2==0) ?"this is an Even number":"this is an Odd number";
+ echo "\n";
 
 
  
-// $number=10;
-// if($number<10){
-//     echo "Number is less then 10";
-// }
-// elseif($number==10){
-//     echo "Number is Equel the 10";
-// }
-// elseif($number>10){
-//     echo "Number is biger the 10";
-// }
-// else{
-//     echo "Number is unknown";
-// }
+$number=10;
+if($number<10){
+    echo "Number is less then 10";
+}
+elseif($number==10){
+    echo "Number is Equel the 10";
+}
+elseif($number>10){
+    echo "Number is biger the 10";
+}
+else{
+    echo "Number is unknown";
+}
 
-// $result= ($number<10) ? "" : "";
+$result= ($number<10) ? "" : "";
 
-// $points = 75;
-// $grade = '';
+$points = 75;
+$grade = '';
 
-// $grade = ($points >= 90) ? 'A' :
-//          (($points >= 80) ? 'B' :
-//          (($points >= 70) ? 'C' :
-//          (($points >= 60) ? 'D' : 'F')));
+$grade = ($points >= 90) ? 'A' :
+         (($points >= 80) ? 'B' :
+         (($points >= 70) ? 'C' :
+         (($points >= 60) ? 'D' : 'F')));
 
-// echo "The student's grade is: " . $grade;
+echo "The student's grade is: " . $grade;
 echo PHP_EOL;
 
 
@@ -59,6 +67,12 @@ $tutionFee=6100;
 
    echo "The commission is:- $commission"; 
    echo PHP_EOL;
+
+*/
+
+
+
+
    for($i=1; $i<10; $i++){
        
         echo PHP_EOL;
