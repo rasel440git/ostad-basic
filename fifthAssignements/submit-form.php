@@ -37,6 +37,13 @@ else{
     echo "Submit your form properly or sumthing wrong!!";
 }
 
+if(!empty($_REQUEST)){
+    echo "'<ul>";
+        foreach($_REQUEST as $key=>$value){
+            echo "<li>".$key."=>".$value."</li>";
+        }
+    echo "'<ul>";
+}
 
 
 
