@@ -5,8 +5,6 @@
     //$fileName = $_FILES['file']['name'];
     $fileName = date('YmdHis') . '_' . $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
-    // $fileSize = $_FILES['file']['size'];
-    // $fileType = $_FILES['file']['type'];
     $fileError = $_FILES['file']['error'];
     
     // Get the user's name and email
@@ -32,6 +30,52 @@
       // Upload the file to the server
       move_uploaded_file($fileTmpName, 'uploads/' . $fileName);
       echo 'Your file has been uploaded successfully.';
+
+      // Write the form data to a CSV file
+      $data = array($username, $email, $fileName);
+      $fp = fopen('data.csv', 'a');
+      fputcsv($fp, $data);
+      fclose($fp);
+      
+      echo 'Your data has been saved to the CSV file.';
+
+    
     }
+
+    
   }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Data Form</title>
+</head>
+<body>
+    <table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Profile Picture</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+				// read users data from CSV file
+				$csvfile = fopen('data.csv', 'r');
+
+				while (($data = fgetcsv($csvfile)) !== false) {
+					echo '<tr>';
+					echo '<td>' . $data[0] . '</td>';
+					echo '<td>' . $data[1] . '</td>';
+					echo '<td><img src="uploads/' . $data[2] . '"></td>';
+					echo '</tr>';
+				}
+
+				fclose($file);
+			?>
+		</tbody>
+	</table>
+</body>
+</html>
