@@ -74,6 +74,14 @@
 				}
 
 				fclose($file);
+
+        // start session and set cookie
+          session_start();
+          setcookie( 'username', $username );
+
+          // redirect to success page
+          header( 'Location: submit.php' );
+          exit();
 			?>
 		</tbody>
 	</table>

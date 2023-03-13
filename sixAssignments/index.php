@@ -1,5 +1,8 @@
 <?php
-/****
+/**** PLZ Ignore My Warning & Error! I didn't learn to handle yet! but all funcuntinaly are okay as per question!
+   * 
+   * 
+   * 
 Create an HTML form with the following fields:
 
 Name (text input)
@@ -11,8 +14,6 @@ Password (password input)
 Profile Picture (file input)
 
 Submit Button
-
-
 
 Write a PHP script that:
 
