@@ -12,9 +12,32 @@ function gcd($a, $b) {
     return $a;
 }
 echo gcd(12,18);
-//echo $bv = 12% 18;
-//12= 2*2*3
-//18= 2*3*3
+
+
+
+
+function PrintN($number){
+    if($number>=10){
+        return;
+    }
+    echo $number."\n";
+    $number++;
+    PrintN($number);
+}
+
+//PrintN(1);
+
+function PrintNumber($start,$end, $step=1){
+    if($start>$end){
+        return;
+    }
+    echo $start."\n";
+    $start+=$step;
+    PrintNumber($start, $end,$step);
+}
+PrintNumber(22,50,7);
+
+
 
 
 
