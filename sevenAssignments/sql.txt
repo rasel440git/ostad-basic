@@ -1,0 +1,96 @@
+Description:
+
+In this assignment, you will be working with a fictional database of a company named "XYZ Corp." 
+The database contains two tables, employees and departments. Your task is to write SQL commands to retrieve and manipulate data 
+from these tables.
+
+
+
+
+
+a. Write a query to select all columns and rows from the employees table.
+Ans: 
+    select * from employees;
+
+explanation: this query use to select all data from table.
+
+
+b. Write a query to select only the name and salary columns of all employees with a salary greater than 50000.
+Ans:
+    SELECT name,salary
+    FROM employees
+    WHERE salary>50000;
+
+explanation: here we found our required data with condations.
+
+
+c. Write a query to calculate the average salary of all employees.
+Ans:
+    SELECT AVG(salary)
+    FROM employees;
+
+explanation: Here we found our result using mysql built in function.
+
+
+d. Write a query to count the number of employees who work in the "Marketing" department.
+Ans:
+    SELECT COUNT(*) as NumberOfEmployee
+    FROM employees
+    WHERE department_id = 2;
+
+explanation: Here we insert Marketing department in department table with id 2 and use count alies as NumberOfEmployee.
+
+
+e. Write a query to update the salary column of the employee with an id of 1001 to 60000.
+Ams: 
+    UPDATE employees
+    SET salary = 60000
+    WHERE id = 1001;
+
+explanation: update a single row with condation. 
+
+f. Write a query to delete all employees whose salary is less than 30000.
+Ans: 
+    DELETE FROM employees
+    WHERE salary < 30000;
+
+explanation: Delete data with condation.
+
+
+
+
+
+
+ 
+Use the departments table to answer the following questions:
+
+a. Write a query to select all columns and rows from the departments table.
+Ans: 
+    select * from departments;
+
+explanation: this query use to select all data from table.
+
+
+b. Write a query to select only the name and manager columns of the "Finance" department.
+Ans:
+    SELECT name, manager
+    FROM departments
+    WHERE name='Finance';
+
+explanation: custom search query with condation. 
+
+c. Write a query to calculate the total number of employees in each department.
+Ans:
+    SELECT department_id, COUNT(*) as totalEmployees
+    FROM employees
+    GROUP BY department_id;
+
+explanation: we can also use join but here we can find using dpt id. 
+
+d. Write a query to insert a new department called "Research" with a manager named "John Doe".
+Ans: 
+    INSERT INTO departments (name, manager)
+    VALUES ('Research', 'John Doe');
+
+explanation: insert data. 
+
