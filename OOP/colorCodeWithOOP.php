@@ -1,5 +1,5 @@
 <?php
-echo"Hello RGB";
+//echo"Hello RGB";
 
 class RGB{
     private $color;
@@ -33,4 +33,6 @@ class RGB{
 
 }
  $myColor = new RGB("#ffef27");
+
+ 
  
