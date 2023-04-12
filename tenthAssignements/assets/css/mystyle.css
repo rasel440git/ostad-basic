@@ -8,3 +8,7 @@
     
     width: 50 px;
 }
+#carousel-inner {
+    width: 50vh;
+    height: 50%;
+}

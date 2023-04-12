@@ -206,9 +206,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 0 10px 30px;
-    font-size: 15px;
+    font-size: 0 px;
     font-weight: 600;
-    color: #fff;
+    color: #1d0202;
     white-space: nowrap;
     transition: 0.3s;
   }
