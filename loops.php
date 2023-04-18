@@ -99,5 +99,8 @@ for ( $i = 1; $i<$n; $i++ ) {
     
 echo PHP_EOL;
 }
+$x = 5;
 
+echo $z=$x++;
+echo $z;
 
