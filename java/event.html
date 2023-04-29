@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="myEvent('page load is done!')">
+    
+
+    <button onclick="myEvent('click is done!')"> Click </button>
+    <button onmouseover="myEvent('mouse over is done!!')"> Hover </button>
+    <button onmouseout="myEvent('mouse out is done!!')"> out </button>
+
+    <input onchange="myEvent('change is done!!')"> 
+    <input onkeyup="myEvent('key UP is done!!')"> 
+    <input onkeydown="myEvent('key DOWN is done!!')"> 
+
+
+
+
+    <script>
+
+        function myEvent(msg){
+            console.log(msg);
+        }
+
+    </script>
+</body>
+</html>

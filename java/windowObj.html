@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button onclick="objPrompt()"> Click </button>
+    <script>
+
+    function objAlert(){
+        alert("Save Successfully!!!")
+    }
+
+    function objConfirm(){
+       let result= confirm("do you want to save?")
+       document.write(result);
+        
+    }
+
+    function objPrompt(){
+        let result= prompt("Insert your name")
+       document.write(result);
+    }
+
+    function objOpen(){
+        open();
+    }
+
+    function objClose(){
+        close();
+    }
+
+    setTimeout(function(){
+        alert("Prompt after five second");
+    }, 5000);
+
+
+
+    var language= navigator.language;
+    var userAgent= navigator.userAgent;
+    var appName= navigator.appName;
+    var appVersion= navigator.appVersion;
+    // document.write(language+"</br>");
+    // document.write(userAgent+"</br>");
+    // document.write(appName+"</br>");
+    // document.write(appVersion+"</br>");
+
+
+
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        let altitude= position.coords.altitude;
+        let latitude= position.coords.latitude;
+        let longitude= position.coords.longitude;
+        let speed= position.coords.speed;
+
+
+        // document.write("Altitude: "+altitude+"<br>");
+        // document.write("latitude: "+latitude+"<br>");
+        // document.write("longitude: "+longitude+"<br>");
+        // document.write("speed: "+speed+"<br>");
+
+
+    })
+
+    </script>
+</body>
+</html>
