@@ -10,11 +10,34 @@
     
 
 
+<h1 id="hID"> Hello From H1</h1>
+<h1 class="hTag"> Header with h1</h1>
+<h6 class="hTag"> Header with h6</h6>
+<h2 class="hTag"> Hello form button</h2>
+
+<p></p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<button onclick="Demo()">Click</button>
 
     <script>
+      let htageElement=  document.getElementById('hID');
+      let hclassElement=  document.getElementsByClassName('hTag');        
+      hclassElement[1].innerHTML="<button> Hi </button>";
 
-        
+      
 
+      function Demo(){
+        let info= document.lastModified;
+        document.getElementsByTagName('p')[0].innerHTML=info;
+      }
+
+      function lengthCount(){
+        let item = document.getElementsByTagName('p');
+        let countItem = item.length;
+        alert(countItem);
+      }
 
 
     </script>
