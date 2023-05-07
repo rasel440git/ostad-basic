@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/bE5yyy3pCAi0IpUTbB_xqsSwsvukYUelGzrU3uzS1TRtFr_wpauqLNvbrHa01hZ6N10" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+
+<style>
+    /* Form styling */
+    
+  </style>
+
+<body>
+    <!-- The BMI formula is: BMI = weight (kg) / (height (m) * height (m)).
+
+Part 3: Deploying to Netlify
+Deploy your site to Netlify.
+
+What You should submit :
+1.  You should submit github repository link
+2. You should add a text file named note.txt in your repository
+3. In the note.txt file, please add your deployed link of your website
+
+<h1>assignment</h1>
+    <form>
+        <h2>BMI Calculator</h2>
+        <label for="weightInput">Weight</label>
+        <input type="number" id="weightInput" name="weight" required autofocus>
+        <label for="heightInput">Height</label>
+        <input type="number" id="heightInput" name="height" required>
+        <button id="calculateBtn">Calculate</button>
+        <p id="result"></p>
+    </form>
+    -->
+
+    <form action="#" method="POST">
+        <h1> BMI Calculator</h1>
+        <label for="Weight">Weight</label>
+        <input type="text" id="weight" name="name" placeholder="Enter your Weight" required>
+        
+        <label for="Height">Height</label>
+        <input type="text" id="height" name="email" placeholder="Enter your Height" required>
+        
+                
+        <input type="submit" onclick="bmi()" value="Calculate">
+      </form>
+    <script>
+        function bmi(){
+            let weight= document.getElementById('weight').value
+            let height= document.getElementById('height').value
+            let bmiResult= parseFloat(weight) / (parseFloat(height) *parseFloat(height))
+            //alert(bmiResult);
+            //console.log("Your BMI is: " + bmiResult)
+            document.write(bmiResult)
+
+        }
+
+    </script>
+    
+</body>
+
+</html>

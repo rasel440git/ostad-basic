@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
     
@@ -19,7 +20,19 @@
 <p>1</p>
 <p>2</p>
 <p>3</p>
-<button onclick="Demo()">Click</button>
+<button onclick="lengthCount()">Click</button><br><br><br>
+
+<input id="num1"><br>
+<input id="num2"><br>
+<button onclick="getAddResult()">Check Result</button><br><br><br>
+
+<h1 id="Htags">Click below for style</h1><br>
+<button onclick="addStyle()">Add Style</button> <button onclick="removeStyle()">Remove Style</button>
+
+
+
+
+
 
     <script>
       let htageElement=  document.getElementById('hID');
@@ -33,6 +46,7 @@
         document.getElementsByTagName('p')[0].innerHTML=info;
       }
 
+
       function lengthCount(){
         let item = document.getElementsByTagName('p');
         let countItem = item.length;
@@ -40,6 +54,32 @@
       }
 
 
+
+      function getAddResult(){
+            let num1= document.getElementById('num1').value;
+            let num2= document.getElementById('num2').value;
+            let result= parseFloat(num1) + parseFloat(num2);
+
+            alert(result);
+
+      }
+
+      function addStyle(){
+
+        let H1tag= document.getElementById('Htags')
+            H1tag.classList.add('text-danger')
+      } 
+      function removeStyle(){
+
+        let H1tag= document.getElementById('Htags')
+            H1tag.classList.remove('text-danger')
+      }     
+
+
+      const name = "Alice";
+      const age = 25;
+      console.log(`My name is ${name} and I am ${age} years old.`);
+      
     </script>
 </body>
 </html>
