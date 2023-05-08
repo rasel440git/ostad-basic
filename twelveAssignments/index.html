@@ -49,18 +49,25 @@ What You should submit :
         <label for="Height">Height</label>
         <input type="text" id="height" name="email" placeholder="Enter your Height" required>
         
-                
-        <input type="submit" onclick="bmi()" value="Calculate">
+        <p id="show"> </p>
+        <button id="calculateBtn" onclick="bmi()">Calculate</button>
+        
       </form>
     <script>
+
         function bmi(){
             let weight= document.getElementById('weight').value
             let height= document.getElementById('height').value
             let bmiResult= parseFloat(weight) / (parseFloat(height) *parseFloat(height))
             //alert(bmiResult);
-            //console.log("Your BMI is: " + bmiResult)
-            document.write(bmiResult)
+           // console.log("Your BMI is: " + bmiResult)
+            alert("Your BIM index is: " + bmiResult)
+            //let show= document.getElementById('show');
+            //show.innerHTML(bmiResult);
+            //show.innerHTML = bmiResult.toString();
+            //console.log('show');
 
+            
         }
 
     </script>

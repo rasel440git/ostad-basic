@@ -1,3 +1,7 @@
+body{
+  --background-color: #45a049;
+  background-image: url('body-img.jpg');
+}
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -18,7 +22,7 @@ form {
     margin-bottom: 16px;
   }
   
-  input[type="submit"] {
+  button[id="calculateBtn"] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -27,7 +31,7 @@ form {
     cursor: pointer;
   }
   
-  input[type="submit"]:hover {
+  button[id="calculateBtn"]:hover {
     background-color: #45a049;
   }
   
