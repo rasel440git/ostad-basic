@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX request</title>
+</head>
+<body>
+    
+</body>
+
+<button onclick="exGetRequest()">GetResponse</button> <br><br><br>
+<button onclick="exPostRequest()">PostResponse</button>
+
+<script>
+    function exGetRequest(){
+    let url="https://crud.teamrabbil.com/api/v1/ReadProduct";
+    let reqConfig= {method:"GET"};
+
+    fetch(url,reqConfig)
+    .then(Response=>Response.json())
+    .then(result=>console.log(result))
+    .catch(err=>console.log(err));
+
+}
+
+    function exPostRequest(){
+        let url= "https://crud.teamrabbil.com/api/v1/CreateProduct"
+        let bodyData= {ProductName:"Bodna", ProductCode:"XXX", Img:"test", UnitPrice:"420",Qty:"5"}
+
+        let reqConfig= {method:"POST",
+                        headers:{'Accept':'application/json','Content-Type':'application/json'},
+                        body:JSON.stringify(bodyData)
+                }
+
+        fetch(url,reqConfig)
+        .then(Response=>Response.json())
+        .then(result=>console.log(result))
+        .catch(err=>console.log(err));
+    }
+
+
+</script>
+</html>
