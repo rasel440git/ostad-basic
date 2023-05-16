@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\requestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,6 @@ Route::get('/', function () {
 Route::get('/hello', function(){
     return "Hello World!!!";
 });
+
+Route::get('/contHello', [requestController::class,'books']);
+Route::get('/contHello/{id}', [requestController::class,'getBooks']);
