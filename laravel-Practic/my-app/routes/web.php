@@ -25,3 +25,5 @@ Route::get('/hello', function(){
 
 Route::get('/contHello', [requestController::class,'books']);
 Route::get('/contHello/{id}', [requestController::class,'getBooks']);
+Route::get('/contHello/{id}/{field}', [requestController::class,'getFieldBooks']);
+

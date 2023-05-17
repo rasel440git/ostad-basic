@@ -34,6 +34,18 @@ private $books= [
         return  $this->books[$id];
     }
 
+    public function getFieldBooks($id, $field){
+          $book= $this->books[$id];
+          return $book[[$field]];
+    }
+
+
+
+
+
+
+
+
     public function firstFunction(Request $Request){
         return $Request-> books;
     }
