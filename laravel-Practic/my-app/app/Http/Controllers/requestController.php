@@ -27,8 +27,15 @@ private $books= [
 
     ];
 
-    public function books(){
-        return $this->books;
+    public function books(Request $request){
+
+        $limit= $request->query('limit',0);
+        if($limit==0){
+            return $this->books;
+        }else{
+            return array_splice($this->books,0,$limit);
+        }
+
     }
     public function getBooks($id){
         return  $this->books[$id];
@@ -36,7 +43,15 @@ private $books= [
 
     public function getFieldBooks($id, $field){
           $book= $this->books[$id];
-          return $book[[$field]];
+          return $book[$field];
+    }
+
+    public function createBook(Request $request){
+        $book = $request->input(key:'book');
+        $author = $request->input(key:'author');
+
+        return "Your Book name is : {$book} and author is :{$author}";
+
     }
 
 

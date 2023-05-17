@@ -23,7 +23,15 @@ Route::get('/hello', function(){
     return "Hello World!!!";
 });
 
-Route::get('/contHello', [requestController::class,'books']);
-Route::get('/contHello/{id}', [requestController::class,'getBooks']);
-Route::get('/contHello/{id}/{field}', [requestController::class,'getFieldBooks']);
+// Route::get('/contHello', [requestController::class,'books'])->whereNumber('id');
+// Route::get('/contHello/{id}', [requestController::class,'getBooks']);
+// Route::get('/contHello/{id}/{field}', [requestController::class,'getFieldBooks']);
+
+Route::controller(requestController::class)->group(function(){
+    Route::get('/contHello', 'books')->whereNumber('id');
+    Route::get('/contHello/{id}', 'getBooks');
+    Route::get('/contHello/{id}/{field}', 'getFieldBooks');
+
+    Route::post('/books','createBook');
+});
 
