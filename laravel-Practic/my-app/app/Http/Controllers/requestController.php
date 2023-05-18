@@ -46,11 +46,18 @@ private $books= [
           return $book[$field];
     }
 
+
+
     public function createBook(Request $request){
+
+        $publish = $request->header(key:'pub');
         $book = $request->input(key:'book');
         $author = $request->input(key:'author');
+        $city = $request->city;
+        $country = $request->country;
 
-        return "Your Book name is : {$book} and author is :{$author}";
+        //return "{$city}=>{$country}" ;
+        return "Your Book name is : {$book} and author is :{$author} and publisher: {$publish}, city :{$city}, country {$country}";
 
     }
 

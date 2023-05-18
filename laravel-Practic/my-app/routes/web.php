@@ -32,6 +32,6 @@ Route::controller(requestController::class)->group(function(){
     Route::get('/contHello/{id}', 'getBooks');
     Route::get('/contHello/{id}/{field}', 'getFieldBooks');
 
-    Route::post('/books','createBook');
+    Route::post('/books/{city}/{country}','createBook');
 });
 
