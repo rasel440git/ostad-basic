@@ -30,6 +30,7 @@ Route::get('/hello', function(){
 Route::controller(requestController::class)->group(function(){
     Route::get('/contHello', 'books')->whereNumber('id');
     Route::get('/contHello/{id}', 'getBooks');
+    Route::get('/cookie', 'firstFunction');
     Route::get('/contHello/{id}/{field}', 'getFieldBooks');
 
     Route::post('/books/{city}/{country}','createBook');
