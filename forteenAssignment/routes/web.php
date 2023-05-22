@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\userController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,15 +75,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::controller(userController::class)->group(function(){
     Route::get('/test', 'userInfo');
+
     Route::post('/user', 'userInfo');
+
     Route::get('/users/{page}', 'pageInfo');
+    Route::get('/jsondata', 'jesonResponData');
 
+    Route::post('/fileload', 'fileUpload');
 
-    Route::get('/contHello/{id}', 'getBooks');
-    Route::get('/cookie', 'firstFunction');
-    Route::get('/contHello/{id}/{field}', 'getFieldBooks');
+    Route::get('/cookie', 'returnCookie');
 
-    Route::post('/books/{city}/{country}','createBook');
+    Route::post('/submit', 'submitRequest');
 });
