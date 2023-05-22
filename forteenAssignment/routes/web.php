@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,4 +72,17 @@ Please submit your github repository link.
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(userController::class)->group(function(){
+    Route::get('/test', 'userInfo');
+    Route::post('/user', 'userInfo');
+    Route::get('/users/{page}', 'pageInfo');
+
+
+    Route::get('/contHello/{id}', 'getBooks');
+    Route::get('/cookie', 'firstFunction');
+    Route::get('/contHello/{id}/{field}', 'getFieldBooks');
+
+    Route::post('/books/{city}/{country}','createBook');
 });

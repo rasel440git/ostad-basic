@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::controller(userController::class)->group(function(){
+    Route::get('/test', 'userInfo');
+    Route::post('/user', 'userInfo');
+    Route::get('/contHello/{id}', 'getBooks');
+    Route::get('/cookie', 'firstFunction');
+    Route::get('/contHello/{id}/{field}', 'getFieldBooks');
+
+    Route::post('/books/{city}/{country}','createBook');
 });
