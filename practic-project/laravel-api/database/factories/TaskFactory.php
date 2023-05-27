@@ -18,6 +18,8 @@ class TaskFactory extends Factory
     {
         return [
             //
+            'name'=>fake()->sentence(),
+            'is_completed'=>rand(0,1)
         ];
     }
 }
