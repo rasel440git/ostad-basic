@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +59,8 @@ Create a Blade view called welcome.blade.php that includes a navigation bar and 
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/home', function () {
+    return Redirect::to('/welcome', 302);
 });
