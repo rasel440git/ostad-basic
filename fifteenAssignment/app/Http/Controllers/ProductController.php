@@ -2,63 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProductRequest;
+use App\Http\Resources\StoreProductRequest;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        //return ProductResource::collection(Product::all());
+        $products = Product::all();
+        return view('page.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('page.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        $product = Product::create($request->validated());
+        // return ProductResource::make($product);
+
+        return redirect()->route('page.index')->with('success', 'Product created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('page.edit', compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(UpdateProductRequest $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->update($request->validated());
+
+        return redirect()->route('page.index')->with('success', 'Product updated successfully');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('page.index')->with('success', 'Product deleted successfully');
     }
 }

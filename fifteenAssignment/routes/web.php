@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
@@ -61,6 +62,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/home', function () {
     return Redirect::to('/welcome', 302);
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [PostController::class, 'profile'] );
+    Route::get('/settings', [PostController::class, 'settings'] );
+
 });

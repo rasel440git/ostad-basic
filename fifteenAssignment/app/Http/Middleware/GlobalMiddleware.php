@@ -4,10 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
-class AuthMiddleware
+
+class GlobalMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,11 +17,7 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
-            return $next($request);
-        }
-
-        abort(401, 'Unauthorized');
-
+        Log::info('Request: ' . $request->method() . ' ' . $request->fullUrl());
+        return $next($request);
     }
 }
