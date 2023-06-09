@@ -13,7 +13,65 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //$productData= DB::table('products')->find(3);
+        //return $productData= DB::table('products')->get();
+        //return $productData= DB::table('products')->first();
+        // return $productData= DB::table('products')->find(2);
+        // return $productData= DB::table('brands')->pluck('brandName','id');
+        // return $productData= DB::table('products')->select('title','price')->distinct()->get();
+
+        //All Join
+        // $joinData = DB::table('products')
+        //     ->select('products.id','products.title','.categories.categoryName','brands.brandName')
+        //     ->join('categories', 'products.category_id', '=', 'categories.id')
+        //     ->join('brands', 'products.brand_id', '=', 'brands.id')
+        //     ->get();
+
+        // return $joinData;
+
+
+
+        // Left Join
+        // $LefJoinData = DB::table('products')
+        //     ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+        //     ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+        //     ->get();
+
+        // return $LefJoinData;
+
+
+        //  //Cross Join
+        //  $CrossData = DB::table('products')
+        //  ->crossJoin('categories')
+        //  ->crossJoin('brands')->get()
+        //  ->count();
+
+        // return $CrossData;
+
+
+
+        //Advances Join
+        // $Data = DB::table('products')
+        // ->join('categories', function(JoinClause $join) {
+        //     $join->on('categories.id', '=', 'products.category_id')
+        //         ->where('products.price', '>', 2000);
+        // })
+        // ->join('brands', function(JoinClause $join) {
+        //     $join->on('brands.id', '=', 'products.brand_id')
+        //         ->where('brands.brandName', '=', 'Hatil');
+        // })
+        // ->get();
+
+        // return $Data;
+
+        //Union
+          $query= DB::table('products')->where('price', '>', 2000 );
+          $query2= DB::table('products')->where('id', '=', 2 )->get();
+          return $result= $query2->union($query)->count();
+
+
+
+
+
         //$productData= DB::table('products')->count();
         //$productData= DB::table('products')->max('price');
         //$productData= DB::table('products')->sum('price');
@@ -26,16 +84,16 @@ class ProductController extends Controller
         //     ->select('users.email','products.title','products.price','product_details.des')
         //     ->get();
 
-        $productData= DB::table('products')
-            ->join('product_details',function(JoinClause $clause){
-                $clause->on('products.id','=','product_details.id')
-                ->where('products.price','>',3000);})
-                ->orderBy('products.price','desc')
-            ->get();
+        // $productData= DB::table('products')
+        //     ->join('product_details',function(JoinClause $clause){
+        //         $clause->on('products.id','=','product_details.id')
+        //         ->where('products.price','>',3000);})
+        //         ->orderBy('products.price','desc')
+        //     ->get();
 
 
 
-        return $productData;
+        // return $productData;
     }
 
     /**
