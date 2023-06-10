@@ -64,9 +64,29 @@ class ProductController extends Controller
         // return $Data;
 
         //Union
-          $query= DB::table('products')->where('price', '>', 2000 );
-          $query2= DB::table('products')->where('id', '=', 2 )->get();
-          return $result= $query2->union($query)->count();
+        //   $query= DB::table('products')->where('price', '>', 2000 );
+        //   $query2= DB::table('products')->where('id', '=', 2 )->get();
+        //   return $result= $query2->union($query)->count();
+
+        // return $query= DB::table('products')->whereBetween('price',[3000,4000])->get();
+        // return $query= DB::table('products')->skip(16)->take(2)->get();
+
+        //Having & Group By
+        // return $query= DB::table('products')
+        //         ->groupBy('price')
+        //         ->having('price','>',4000)
+        //         ->get();
+
+
+        //Normal Insert
+        // return $query= DB::table('brands')
+        //         ->insert([
+        //             'brandName'=>'Google',
+        //             'brandImg'=>'Demo Img'
+        //         ]);
+
+
+
 
 
 
@@ -109,7 +129,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Inser Data from user or using POSTMAN
+        //  $insert= DB::table('brands')
+        //                 ->insert($request->input());
+        //                 if($insert !==0 ){
+        //                     return "Data Insert Successfully!!!";
+        //                 }
+        //                 else{
+        //                     return "Data Insert Faild!!!";
+        //                 }
+
+
+        //Another Way Inser Data from user or using POSTMAN
+            $insert= DB::table('brands')
+            ->insert([
+                'brandName'=> $request->input('name'),
+                'brandImg'=> $request->input('bImg')
+
+            ]);
+
+            if($insert !==0 ){
+                return "Data Insert Successfully!!!";
+            }
+            else{
+                return "Data Insert Faild!!!";
+            }             
     }
 
     /**
@@ -131,9 +175,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        return $update= DB::table('brands')
+            ->where('id','=', $request->id)
+            ->update( $request->input());
+            
     }
 
     /**
