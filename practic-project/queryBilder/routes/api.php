@@ -16,4 +16,4 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::resource("/userinsert/{id}", ProductController::class);
+//Route::resource("/userinsert/{id}", ProductController::class);

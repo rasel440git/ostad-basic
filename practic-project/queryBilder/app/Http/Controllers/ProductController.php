@@ -84,10 +84,20 @@ class ProductController extends Controller
         //             'brandName'=>'Google',
         //             'brandImg'=>'Demo Img'
         //         ]);
+        $posts = DB::table('products')
+            ->whereBetween('price', [4000, 8000])
+            ->get();
 
-        $brands = DB::table('products')
-                ->where('id', 2)
-                ->first();
+        return $posts;
+
+    //     $affectedRows = DB::table('products')
+    //       ->where('id', 3)
+    //       ->increment('price', 1);
+
+    //  return "Number of affected rows: " . $affectedRows;
+
+
+
 
 
 
