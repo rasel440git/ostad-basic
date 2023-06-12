@@ -85,6 +85,10 @@ class ProductController extends Controller
         //             'brandImg'=>'Demo Img'
         //         ]);
 
+        $brands = DB::table('products')
+                ->where('id', 2)
+                ->first();
+
 
 
 
@@ -141,19 +145,19 @@ class ProductController extends Controller
 
 
         //Another Way Inser Data from user or using POSTMAN
-            $insert= DB::table('brands')
-            ->insert([
-                'brandName'=> $request->input('name'),
-                'brandImg'=> $request->input('bImg')
+            // $insert= DB::table('brands')
+            // ->insert([
+            //     'brandName'=> $request->input('name'),
+            //     'brandImg'=> $request->input('bImg')
 
-            ]);
+            // ]);
 
-            if($insert !==0 ){
-                return "Data Insert Successfully!!!";
-            }
-            else{
-                return "Data Insert Faild!!!";
-            }             
+            // if($insert !==0 ){
+            //     return "Data Insert Successfully!!!";
+            // }
+            // else{
+            //     return "Data Insert Faild!!!";
+            // }
     }
 
     /**
@@ -180,7 +184,7 @@ class ProductController extends Controller
         return $update= DB::table('brands')
             ->where('id','=', $request->id)
             ->update( $request->input());
-            
+
     }
 
     /**
