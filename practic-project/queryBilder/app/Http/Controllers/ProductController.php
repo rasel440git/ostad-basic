@@ -13,7 +13,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //return $productData= DB::table('products')->get();
+        //  $productData= DB::table('products')->simplePaginate(5);
+        //  return view('welcome', compact('productData') );
+
+        $productData= DB::table('products')
+        ->when(function($query){
+          return  $query->where('price','>',3000);
+        })->get();
+        return $productData;
+         
         //return $productData= DB::table('products')->first();
         // return $productData= DB::table('products')->find(2);
         // return $productData= DB::table('brands')->pluck('brandName','id');
@@ -84,11 +92,11 @@ class ProductController extends Controller
         //             'brandName'=>'Google',
         //             'brandImg'=>'Demo Img'
         //         ]);
-        $posts = DB::table('products')
-            ->whereBetween('price', [4000, 8000])
-            ->get();
+        // $posts = DB::table('products')
+        //     ->whereBetween('price', [4000, 8000])
+        //     ->get();
 
-        return $posts;
+        // return $posts;
 
     //     $affectedRows = DB::table('products')
     //       ->where('id', 3)
