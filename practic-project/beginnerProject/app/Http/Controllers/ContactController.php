@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,7 @@ class ContactController extends Controller
     }
 
     function contactRequest(Request $request){
-         DB::table('contacts')->first();
+        return DB::table('contacts')->insert($request->input());
 
     }
 }
