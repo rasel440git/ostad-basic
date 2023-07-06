@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,13 @@ iterate over the categories and display the post details.
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/postdata', [PostController::class,'getPostData']);
+Route::get('/postAllData', [PostController::class,'allPostWithTheirCategory']);
+Route::delete( '/posts/{id}/delete', [PostController::class, 'softDelete'] );
+Route::get( '/softDeletedPosts', [PostController::class, 'softDeletedPosts'] );
+Route::get( '/allpostwithcategory', [PostController::class, 'allpostwithcategory'] );
+Route::get( '/categories/{id}/posts', [PostController::class, 'specificCatPosts'] );
+Route::get( '/eachCategoryPosts', [PostController::class, 'eachCategoryPosts'] );
+
+
