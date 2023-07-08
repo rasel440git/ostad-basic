@@ -24,27 +24,27 @@
 </header>
 
 <script>
-   getHero();
-   async function getHero() {
+//    getHero();
+//    async function getHero() {
 
-       try {
-           let URL="/heroData"
+//        try {
+//            let URL="/heroData"
 
-           document.getElementById('loading-div').classList.remove('d-none');
-           document.getElementById('content-div').classList.add('d-none');
+//            document.getElementById('loading-div').classList.remove('d-none');
+//            document.getElementById('content-div').classList.add('d-none');
 
-           debugger;
+//            debugger;
 
-           let response = await axios.get(URL);
-           document.getElementById('keyLine').innerHTML=response.data['keyLine'];
-           document.getElementById('short_title').innerHTML=response.data['short_title'];
-           document.getElementById('title').innerHTML=response.data['title'];
-           document.getElementById('profileImg').src=response.data['img'];
-       }
-       catch (e) {
-           alert(e);
-       }
+//            let response = await axios.get(URL);
+//            document.getElementById('keyLine').innerHTML=response.data['keyLine'];
+//            document.getElementById('short_title').innerHTML=response.data['short_title'];
+//            document.getElementById('title').innerHTML=response.data['title'];
+//            document.getElementById('profileImg').src=response.data['img'];
+//        }
+//        catch (e) {
+//            alert(e);
+//        }
 
-   }
+//    }
 
 </script>

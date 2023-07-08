@@ -6,7 +6,8 @@
         <div class="row gx-5 justify-content-center">
             <div id="project-list" class="col-lg-11 col-xl-9 col-xxl-8">
 
-
+                 <!-- Project Card 1-->
+                 
 
             </div>
         </div>
@@ -48,9 +49,6 @@
         } catch (error) {
             alert(error)
         }
-
-
-
 
     }
 </script>

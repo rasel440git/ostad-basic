@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     function page(Request $request){
-        return view('pages.project');
+        return view('pages.projects');
     }
 
     function projectsData(Request $request){

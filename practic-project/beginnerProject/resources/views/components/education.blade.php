@@ -9,21 +9,27 @@
 
                 </div>
 
-
             </section>
         </div>
     </div>
 </div>
 
 <script>
-   eduList();
-   async function eduList() {
+   getEductionList();
+   async function getEductionList(){
+    let URL= "/educationData";
 
-       try{
-           let URL="/educationData";
-           let response = await axios.get(URL);
-           response.data.forEach((item)=>{
-               document.getElementById('education-list').innerHTML+=(`<div class="card shadow border-0 rounded-4 mb-5">
+    try{
+        // document.getElementById('loading-div').classList.remove('d-none');
+        // document.getElementById('content-div').classList.add('d-none');
+
+        const response= await axios.get(URL);
+
+        // document.getElementById('loading-div').classList.add('d-none');
+        // document.getElementById('content-div').classList.remove('d-none');
+
+        response.data.forEach((item)=>{
+            document.getElementById('education-list').innerHTML+=(`<div class="card shadow border-0 rounded-4 mb-5">
                     <div class="card-body p-5">
                         <div class="row align-items-center gx-5">
                             <div class="col text-center text-lg-start mb-4 mb-lg-0">
@@ -42,12 +48,12 @@
                         </div>
                     </div>
                 </div>`)
-           })
-       }
-       catch (e) {
-           alert(e)
-       }
 
+        })
+
+    } catch(error){
+        alert (error)
+    }
    }
 
 </script>

@@ -35,7 +35,7 @@
                 let URL="/resumeLink";
                 document.getElementById('loading-div').classList.remove('d-none');
                 document.getElementById('content-div').classList.add('d-none');
-                debugger;
+               
                 let response = await axios.get(URL);
                 let link=response.data['downloadLink'];
                 document.getElementById('CVDownloadLink').setAttribute('href',link);
