@@ -4,12 +4,17 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+Simple Blog Project using Laravel Eloquent ORM & Axios 
+
+Requirements:
+
+Blog Post List By 
+
+Blog Post Details 
+
+Free comments system  
+
+https://github.com/faisal2410/blog_project/tree/main/database/migrations
 |
 */
 
