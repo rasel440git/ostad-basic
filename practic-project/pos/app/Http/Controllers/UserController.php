@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Mail;
+
 use App\Helper\JWTtoken;
 use App\Mail\OTPMail;
 use App\Models\User;
@@ -67,12 +69,44 @@ class UserController extends Controller
 
                 Mail::to($eamil)->send(new OTPMail($otp));
                  User::where('email','=', $eamil)->update(['otp'=>$otp]);
+
+                 return response()->json([
+                    'status'=>'Success',
+                    'message'=>'4 digit OTP sent'
+                ],status:200);   
         }else{
             return response()->json([
                 'status'=>'Failed',
                 'message'=>'unauthorized'
             ],status:200);   
         }
+
+    }
+
+    function verifyOTP(Request $request){
+        $email= $request->input('email');
+        $otp= $request->input('otp');
+
+        $count= User::where('email','=', $email)
+               ->where('otp','=',$otp)->count();
+
+               if($count==1){
+                User::where('email','=', $email)->update(['otp'=>0]);
+
+                $token= JWTtoken::createTokenForSetPassword($request->input('email'));
+
+                return response()->json([
+                 'status'=>'Success',
+                 'message'=>'OTP Verification Successfull',
+                 'token'=>$token
+                 ],status:200);   
+ 
+               }else{
+                    return response()->json([
+                        'status'=>'Failed',
+                        'message'=>'OTP not correct'
+                    ],status:200); 
+               }
 
     }
 }
