@@ -11,6 +11,31 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    function userLoginPage(){
+        return view('pages.auth.login-page');
+    }
+
+    function userRegistrationPage(){
+        return view('pages.auth.registration-page');
+    }
+
+    function sentOTPPage(){
+        return view('pages.auth.send-otp-page');
+    }
+
+    function verifyOTPPage(){
+        return view('pages.auth.verify-otp-page');
+    }
+
+    function resetPasswordPage(){
+        return view('pages.auth.reset-pass-page');
+    }
+
+
+
+
+
     function userRegistration(Request $request){
 
         try{
