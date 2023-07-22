@@ -32,6 +32,10 @@ class UserController extends Controller
         return view('pages.auth.reset-pass-page');
     }
 
+    function dashboardPage(){
+        return view('pages.dashboard.dashboard-page');
+    }
+
 
 
 
@@ -73,9 +77,9 @@ class UserController extends Controller
 
                return response()->json([
                 'status'=>'Success',
-                'message'=>'User login successfull',
-                'token'=>$token
-                ],status:200);   
+                'message'=>'User login successfull'
+                
+                ],status:200)->cookie('token',$token,60*24*30);   
 
             }else {
                 return response()->json([

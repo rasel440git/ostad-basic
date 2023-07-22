@@ -15,7 +15,7 @@
                         <span>
                             <a class="text-center ms-3 h6" href="{{url('/userRegistration')}}">Sign Up </a>
                             <span class="ms-1">|</span>
-                            <a class="text-center ms-3 h6" href="{{url('/sendOtp')}}">Forget Password</a>
+                            <a class="text-center ms-3 h6" href="{{url('/sentOTP')}}">Forget Password</a>
                         </span>
                     </div>
                 </div>
@@ -30,6 +30,26 @@
   async function SubmitLogin() {
            let email= document.getElementById('email').value;
            let password= document.getElementById('password').value;
+
+           if(email.length==0){
+            errorToast("email address required")
+           }
+           else if(password.length==0){
+            errorToast("password required!")
+           }
+           else{
+            showLoader();
+            let res= await axios.post("user-login",{email:email, password:password});
+            hideLoader();
+            if(res.status===200 & res.data['status']==='Success'){
+                window.location.href="/dashboard";
+
+            }else{
+                errorToast(res.data['message']);
+            }
+
+           }
+
 
     }
 

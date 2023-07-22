@@ -29,6 +29,8 @@ Route::get('/userRegistration', [UserController::class, 'userRegistrationPage'])
 Route::get('/sentOTP', [UserController::class, 'sentOTPPage']);
 Route::get('/verifyOTP', [UserController::class, 'verifyOTPPage']);
 Route::get('/resetPassword', [UserController::class, 'resetPasswordPage']);
+Route::get('/dashboard', [UserController::class, 'dashboardPage']);
+
 
 
 
