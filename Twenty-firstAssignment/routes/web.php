@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::post('/readTask',[TaskController::class,'index']);
+Route::post('/createTask',[TaskController::class,'createTask']);
+Route::post('/updateTask',[TaskController::class,'updateTask']);
+Route::post('/deleteTask',[TaskController::class,'deleteTask']);
