@@ -126,14 +126,14 @@ class UserController extends Controller
 
                 return response()->json([
                  'status'=>'Success',
-                 'message'=>'OTP Verification Successfull',
-                 'token'=>$token
-                 ],status:200);   
+                 'message'=>'OTP Verification Successfull'
+                 
+                 ],status:200)->cookie('token',$token,60*24*30);
  
                }else{
                     return response()->json([
                         'status'=>'Failed',
-                        'message'=>'OTP not correct'
+                        'message'=>'Unauthrized'
                     ],status:200); 
                }
 
@@ -147,7 +147,7 @@ class UserController extends Controller
         User::where('email','=',$email)->update(['password'=>$password]);
             return response()->json([
                 'status'=>'Success',
-                'message'=>'Reset Successfull',                
+                'message'=>'Reset Successfull'                
                 ],status:200);   
 
        } catch(Exception $e){

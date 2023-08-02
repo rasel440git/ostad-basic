@@ -23,7 +23,7 @@
         }
         else{
             showLoader();
-            let res = await axios.post('/send-otp', {email: email});
+            let res = await axios.post('/sent-otp', {email: email});
             hideLoader();
             if(res.status===200 && res.data['status']==='success'){
                 successToast(res.data['message'])
