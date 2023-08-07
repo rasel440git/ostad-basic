@@ -85,7 +85,7 @@ class UserController extends Controller
                 return response()->json([
                     'status'=>'Failed',
                     'message'=>'unauthorized'
-                ],status:200);   
+                ],500);   
             }
     }
 
@@ -100,14 +100,14 @@ class UserController extends Controller
                  User::where('email','=', $eamil)->update(['otp'=>$otp]);
 
                  return response()->json([
-                    'status'=>'Success',
+                    'status'=>'success',
                     'message'=>'4 digit OTP sent'
-                ],status:200);   
+                ],200);   
         }else{
             return response()->json([
-                'status'=>'Failed',
+                'status'=>'failed',
                 'message'=>'unauthorized'
-            ],status:200);   
+            ],500);   
         }
 
     }
@@ -125,16 +125,16 @@ class UserController extends Controller
                 $token= JWTtoken::createTokenForSetPassword($request->input('email'));
 
                 return response()->json([
-                 'status'=>'Success',
+                 'status'=>'success',
                  'message'=>'OTP Verification Successfull'
                  
-                 ],status:200)->cookie('token',$token,60*24*30);
+                 ],200)->cookie('token',$token,60*24*30);
  
                }else{
                     return response()->json([
                         'status'=>'Failed',
                         'message'=>'Unauthrized'
-                    ],status:200); 
+                    ],500); 
                }
 
     }

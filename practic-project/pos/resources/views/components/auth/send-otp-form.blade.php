@@ -16,51 +16,30 @@
 </div>
 
 <script>
-//    async function VerifyEmail() {
-//         let email = document.getElementById('email').value;
-//         if(email.length === 0){
-//            errorToast('Please enter your email address')
-//         }
-//         else{
-//             showLoader();
-//             let res = await axios.post('/sent-otp', {email: email});
-//             hideLoader();
-//             if(res.status===200 && res.data['status']==='success'){
-//                 successToast(res.data['message'])
-//                 sessionStorage.setItem('email', email);
-//                 setTimeout(function (){
-//                     window.location.href="/verifyOTP";
-//                 }, 1000)
-//             }
-//             else{
-//                 errorToast(res.data['message'])
-//             }
-//         }
-
-//     }
-
-
-
-async function VerifyEmail() {
-    let email = document.getElementById('email').value;
-    if (email.length === 0) {
-        errorToast('Please enter your email address')
-    } else {
-        showLoader();
-        let res = await axios.post('/sent-otp', {email: email});
-        hideLoader();
-        
-        if (res.status === 200 && res.data['status'] === 'success') {
-            successToast(res.data['message'])
-            sessionStorage.setItem('email', email);
-            console.log('Email stored in session:', sessionStorage.getItem('email'));
-            setTimeout(function () {
-               window.location.href = "/verifyOTP";
-            }, 1000)
-        } else {
-            errorToast(res.data['message'])
+   async function VerifyEmail() {
+        let email = document.getElementById('email').value;
+        if(email.length === 0){
+           errorToast('Please enter your email address')
         }
+        else{
+            showLoader();
+            let res = await axios.post('/sent-otp', {email: email});
+            hideLoader();
+            if(res.status===200 && res.data['status']==='success'){
+                successToast(res.data['message'])
+                sessionStorage.setItem('email', email);
+                window.location.href="/verifyOTP";
+                // setTimeout(function (){
+                //     window.location.href="/verifyOTP";
+                // })
+
+            }
+            else{
+                errorToast(res.data['message'])
+            }
+        }
+
     }
-}
+
 
 </script>
