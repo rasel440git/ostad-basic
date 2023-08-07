@@ -76,11 +76,15 @@
                 password:password
             })
             hideLoader();
-            if(res.status===200 && res.data['status']==='success'){
-                successToast(res.data['message']);
-                setTimeout(function (){
-                    window.location.href='/userLogin'
-                },2000)
+            // if(res.status===200 && res.data['status']==='success'){
+            //     successToast(res.data['message']);
+            //     setTimeout(function (){
+            //         window.location.href="/userLogin"
+            //     },2000)
+            // }
+            if(res.status===200 & res.data['status']==='Success'){
+                window.location.href="/userLogin";
+
             }
             else{
                 errorToast(res.data['message'])
