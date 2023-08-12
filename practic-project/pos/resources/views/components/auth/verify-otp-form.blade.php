@@ -14,6 +14,7 @@
         </div>
     </div>
 </div>
+
 <script>
    async function VerifyOtp() {
         let otp = document.getElementById('otp').value;

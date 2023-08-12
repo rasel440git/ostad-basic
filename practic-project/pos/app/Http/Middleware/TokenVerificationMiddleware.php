@@ -16,13 +16,13 @@ class TokenVerificationMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $token= $request->header('token');
+        $token= $request->cookie('token');
         $result= JWTtoken::verifyToken($token);
 
         if( $result=="unauthorized"){
 
             return response()->json([
-                'status'=>'Failed',
+                'status'=>'failed',
                 'message'=>'unauthorized'
             ],status:401); 
         }

@@ -76,3 +76,4 @@ Make the application responsive to different screen sizes.
 Route::get('/', function () {
     return view('welcome');
 });
+

@@ -71,21 +71,23 @@ class UserController extends Controller
             ->where('password', '=', $request->input('password'))
             ->count();
 
+            
+
             if($count==1){
                 
                $token= JWTtoken::createToken($request->input('email'));
 
                return response()->json([
-                'status'=>'Success',
+                'status'=>'success',
                 'message'=>'User login successfull'
                 
-                ],status:200)->cookie('token',$token,60*24*30);   
+                ],200)->cookie('token',$token,60*24*30);   
 
             }else {
                 return response()->json([
-                    'status'=>'Failed',
+                    'status'=>'failed',
                     'message'=>'unauthorized'
-                ],500);   
+                ],401);   
             }
     }
 
@@ -146,15 +148,15 @@ class UserController extends Controller
 
         User::where('email','=',$email)->update(['password'=>$password]);
             return response()->json([
-                'status'=>'Success',
+                'status'=>'success',
                 'message'=>'Reset Successfull'                
-                ],status:200);   
+                ],200);   
 
        } catch(Exception $e){
         return response()->json([
-            'status'=>'Faild',
+            'status'=>'faild',
             'message'=>'Reset Faild',                
-            ],status:401); 
+            ],401); 
        }
     }
 }
