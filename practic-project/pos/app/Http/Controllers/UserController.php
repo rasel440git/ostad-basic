@@ -69,13 +69,13 @@ class UserController extends Controller
     function userLogin(Request $request){
         $count= User::where('email', '=', $request->input('email'))
             ->where('password', '=', $request->input('password'))
-            ->count();
+            ->select('id')->first();
 
             
 
-            if($count==1){
+            if($count!==null){
                 
-               $token= JWTtoken::createToken($request->input('email'));
+               $token= JWTtoken::createToken($request->input('email'), $count->id);
 
                return response()->json([
                 'status'=>'success',
@@ -158,5 +158,9 @@ class UserController extends Controller
             'message'=>'Reset Faild',                
             ],401); 
        }
+    }
+
+    function userLogout(){
+        return redirect('/userLogin')->cookie('token','',-1);
     }
 }
