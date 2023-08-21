@@ -38,10 +38,10 @@
           hideLoader();
           if(res.status===200 && res.data['status']==='success'){
               successToast(res.data['message']);
-             
+              debugger;
               setTimeout(function () {
                   window.location.href="/userLogin";
-              },2000);
+              },1000);
           }
           else{
             errorToast(res.data['message'])

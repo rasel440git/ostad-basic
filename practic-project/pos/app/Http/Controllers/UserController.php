@@ -145,17 +145,19 @@ class UserController extends Controller
        try{
         $email= $request->header('email');
         $password= $request->input('password');
-
-        User::where('email','=',$email)->update(['password'=>$password]);
+      
+       
+         User::where('email','=',$email)->update(['password'=>$password]);
+        //var_dump($qry);
             return response()->json([
                 'status'=>'success',
-                'message'=>'Reset Successfull'                
+                'message'=>'reset successfull'                
                 ],200);   
 
        } catch(Exception $e){
         return response()->json([
             'status'=>'faild',
-            'message'=>'Reset Faild',                
+            'message'=>'reset faild',                
             ],401); 
        }
     }
