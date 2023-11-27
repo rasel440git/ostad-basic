@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\DemoController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Middleware\DemoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,8 +70,10 @@ Route::get('/home', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [PostController::class, 'profile'] );
-    Route::get('/settings', [PostController::class, 'settings'] );
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [PostController::class, 'profile'] );
+//     Route::get('/settings', [PostController::class, 'settings'] );
 
-});
+// });
+Route::get('/index', [DemoController::class, 'index'] );
+Route::get('/demo', [DemoController::class, 'demo'] );
